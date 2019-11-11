@@ -1,6 +1,6 @@
 {
   "name": "parse-server-gaming-auth",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Gaming-related authentication modules for parse-server",
   "main": "src/main.js",
   "repository": {
