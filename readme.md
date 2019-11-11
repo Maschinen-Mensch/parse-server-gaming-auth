@@ -4,7 +4,8 @@ Authentication modules for parse-server for Steam (more coming soon)
 
 ## Authentication Provider Registration:
 
-```steamAuthProvider = {
+```
+steamAuthProvider = {
   authenticate: (options) => {
     return options.error("steam", new Error("no steam auth data"));
   },
@@ -15,20 +16,24 @@ Authentication modules for parse-server for Steam (more coming soon)
     return 'steam';
   }
 };
-Parse.User._registerAuthenticationProvider(steamAuthProvider);```
+Parse.User._registerAuthenticationProvider(steamAuthProvider);
+```
 
 # Steam Authdata:
-```"steam": {
+```
+"steam": {
   "id": "user's steam ID",
   "access_token": "access tocket from ISteamUser.GetAuthSessionTicket"
-}```
+}
+```
 
 ## Obtaining steam session ticket using greenworks:
 
 Greenworks is a node.js plugin for steam:
 https://github.com/greenheartgames/greenworks
 
-```greenworks.getAuthSessionTicket(async(result) => {  
+```
+greenworks.getAuthSessionTicket(async(result) => {  
   var sessionTicket = "";
   for (u = 0; u < result.ticket.length; u++) {
     sessionTicket += ('0' + ref1[u].toString(16)).slice(-2);
@@ -38,7 +43,8 @@ https://github.com/greenheartgames/greenworks
 
 # Configuring parse-server for steam:
 
-```auth: {
+```
+auth: {
   steam: {
     module: require('parse-server-gaming-auth').steam,
     webAPIKey: '',  // your steam web API key or publisher key
@@ -46,6 +52,6 @@ https://github.com/greenheartgames/greenworks
     publisherKey: true  // set to true if you are using a publisher key, or false if you are using a public web API key (optional, default false)
   }
 }
-}```
+```
 
 See https://docs.parseplatform.org/parse-server/guide/#custom-authentication for more information 
