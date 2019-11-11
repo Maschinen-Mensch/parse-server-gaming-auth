@@ -19,7 +19,7 @@ steamAuthProvider = {
 Parse.User._registerAuthenticationProvider(steamAuthProvider);
 ```
 
-# Steam Authdata:
+## Steam Authdata:
 ```
 "steam": {
   "id": "user's steam ID",
@@ -41,7 +41,7 @@ greenworks.getAuthSessionTicket(async(result) => {
 ```
 
 
-# Configuring parse-server for steam:
+## Configuring parse-server for steam:
 
 ```
 auth: {
