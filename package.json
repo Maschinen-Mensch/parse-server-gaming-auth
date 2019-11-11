@@ -1,0 +1,25 @@
+{
+  "name": "parse-server-gaming-auth",
+  "version": "1.0.0",
+  "description": "Gaming-related authentication modules for parse-server",
+  "main": "src/main.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Maschinen-Mensch/parse-server-gaming-auth.git"
+  },
+  "keywords": [
+    "parse-server",
+    "gaming",
+    "steam",
+    "discord"
+  ],
+  "author": "Maschinen-Mensch",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Maschinen-Mensch/parse-server-gaming-auth/issues"
+  },
+  "homepage": "https://github.com/Maschinen-Mensch/parse-server-gaming-auth#readme",
+  "dependencies": {
+    "https": "^1.0.0"
+  }
+}
