@@ -1,4 +1,9 @@
-Authentication modules for parse-server for Steam (more coming soon)
+Authentication modules for parse-server for Steam (more platforms coming soon)
+See https://docs.parseplatform.org/parse-server/guide/#custom-authentication for more information 
+
+# Installation
+
+`npm install parse-server-gaming-auth --save`
 
 # Steam
 
@@ -23,7 +28,7 @@ Parse.User._registerAuthenticationProvider(steamAuthProvider);
 ```
 "steam": {
   "id": "user's steam ID",
-  "access_token": "access tocket from ISteamUser.GetAuthSessionTicket"
+  "access_token": "access ticket from ISteamUser.GetAuthSessionTicket"
 }
 ```
 
@@ -53,5 +58,3 @@ auth: {
   }
 }
 ```
-
-See https://docs.parseplatform.org/parse-server/guide/#custom-authentication for more information 
