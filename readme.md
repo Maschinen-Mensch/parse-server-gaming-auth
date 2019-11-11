@@ -2,10 +2,6 @@ Authentication modules for parse-server for Steam (more platforms coming soon).
 
 See https://docs.parseplatform.org/parse-server/guide/#custom-authentication for more information 
 
-# Installation
-
-`npm install parse-server-gaming-auth --save`
-
 # Steam
 
 ## Authentication Provider Registration:
