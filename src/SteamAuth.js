@@ -1,10 +1,15 @@
 // Helper functions for accessing the steam API.
+console.log("SteamAuth loading")
+
 var Parse = require('parse/node').Parse;
 
 const httpsRequest = require('./httpsRequest');
 
 // Returns a promise that fulfills iff this user id is valid.
 function validateAuthData(authData, options) {
+
+  console.log("SteamAuth: validateAuthData authdata: " + JSON.stringify(authData) + "; options: " + JSON.stringify(options))
+
   if (!options) {
     throw new Parse.Error(
       Parse.Error.INTERNAL_SERVER_ERROR,
@@ -54,3 +59,4 @@ module.exports = {
   validateAppId,
   validateAuthData,
 };
+console.log("SteamAuth loaded")
