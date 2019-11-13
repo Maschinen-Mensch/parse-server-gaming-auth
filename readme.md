@@ -48,7 +48,7 @@ greenworks.getAuthSessionTicket(async(result) => {
 ```
 auth: {
   steam: {
-    module: require('parse-server-gaming-auth').steam,
+    module: require('@maschinen-mensch/parse-server-gaming-auth').steam,
     webAPIKey: '',  // your steam web API key or publisher key
     appID: '',  // your steam app ID
     publisherKey: true  // set to true if you are using a publisher key, or false if you are using a public web API key (optional, default false)
