@@ -1,6 +1,6 @@
 {
   "name": "@maschinen-mensch/parse-server-gaming-auth",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Gaming-related authentication modules for parse-server",
   "main": "src/main.js",
   "repository": {
