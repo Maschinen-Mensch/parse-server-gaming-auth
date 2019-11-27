@@ -1,4 +1,4 @@
-Authentication modules for parse-server for Steam (more platforms coming soon).
+Authentication modules for parse-server for Steam and Discord.
 
 See https://docs.parseplatform.org/parse-server/guide/#custom-authentication for more information 
 
@@ -52,6 +52,44 @@ auth: {
     webAPIKey: '',  // your steam web API key or publisher key
     appID: '',  // your steam app ID
     publisherKey: true  // set to true if you are using a publisher key, or false if you are using a public web API key (optional, default false)
+  }
+}
+```
+
+
+# Discord
+
+## Authentication Provider Registration:
+
+```
+discordAuthProvider = {
+  authenticate: (options) => {
+    return options.error("discord", new Error("no discord auth data"));
+  },
+  restoreAuthentication: () => {
+    return true;
+  },
+  getAuthType: () => {
+    return 'discord';
+  }
+};
+Parse.User._registerAuthenticationProvider(discordAuthProvider);
+```
+
+## Discord Authdata:
+```
+"discord": {
+  "id": "user's discord ID",
+  "token": "OAuth2 token from discord.GetApplicationManager().GetOAuth2Token()"
+}
+```
+
+## Configuring parse-server for discord:
+
+```
+auth: {
+  discord: {
+    module: require('@maschinen-mensch/parse-server-gaming-auth').discord
   }
 }
 ```

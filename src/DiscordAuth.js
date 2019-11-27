@@ -1,17 +1,12 @@
-// Helper functions for accessing the Discord API.
-console.log("DiscordAuth loading")
-
 var Parse = require('parse/node').Parse;
 
 const httpsRequest = require('./httpsRequest');
 
 // Returns a promise that fulfills iff this user id is valid.
 function validateAuthData(authData, options) {
-  console.log("discord validateAuthData: " + JSON.stringify(authData))
 
   return discordApiRequest("users/@me", authData.token).then(
     data => {
-      console.log("discord! returnData: " + JSON.stringify(data))
       returnedID = data.id
       if (returnedID == authData.id)
       {
@@ -41,8 +36,6 @@ function discordApiRequest(request, token) {
       Authorization: "Bearer " + token
     }
   };
-
-  console.log("discord req: " + JSON.stringify(options))
 
   return httpsRequest.get(options);
 }
