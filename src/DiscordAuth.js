@@ -12,14 +12,7 @@ function validateAuthData(authData, options) {
   return discordApiRequest("users/@me", authData.token).then(
     data => {
       console.log("discord! returnData: " + JSON.stringify(data))
-      if (data.message != null)
-      {
-        throw new Parse.Error(
-          Parse.Error.OBJECT_NOT_FOUND,
-          'Discord returned error ' + data.message
-        );
-      }
-      returnedID = data.response.id
+      returnedID = data.id
       if (returnedID == authData.id)
       {
         return Promise.resolve();
@@ -28,7 +21,7 @@ function validateAuthData(authData, options) {
       {
         throw new Parse.Error(
           Parse.Error.OBJECT_NOT_FOUND,
-          'Discord auth is invalid for this user.'
+          'Discord auth is invalid for this user.' + data.message
         );
       }
     }
@@ -45,7 +38,7 @@ function discordApiRequest(request, token) {
     hostname: 'discordapp.com',
     path: '/api/'+request,
     headers: {
-      token: token
+      Authorization: "Bearer " + token
     }
   };
 
