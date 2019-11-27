@@ -1,4 +1,4 @@
 const steamAuth = require('./SteamAuth.js')
-const steamAuth = require('./DiscordAuth.js')
+const discordAuth = require('./DiscordAuth.js')
 
-module.exports = { steam: steamAuth };
+module.exports = { steam: steamAuth, discord: discordAuth };

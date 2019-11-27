@@ -11,7 +11,7 @@ function validateAuthData(authData, options) {
 
   return discordApiRequest("users/@me", authData.token).then(
     data => {
-      console.log("discord returnData: " + JSON.stringify(data.response))
+      console.log("discord! returnData: " + JSON.stringify(data))
       if (data.response.error != null)
       {
         throw new Parse.Error(
