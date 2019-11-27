@@ -12,11 +12,11 @@ function validateAuthData(authData, options) {
   return discordApiRequest("users/@me", authData.token).then(
     data => {
       console.log("discord! returnData: " + JSON.stringify(data))
-      if (data.response.error != null)
+      if (data.message != null)
       {
         throw new Parse.Error(
           Parse.Error.OBJECT_NOT_FOUND,
-          'Discord returned error ' + data.response.error.errordesc
+          'Discord returned error ' + data.message
         );
       }
       returnedID = data.response.id
@@ -48,6 +48,8 @@ function discordApiRequest(request, token) {
       token: token
     }
   };
+
+  console.log("discord req: " + JSON.stringify(options))
 
   return httpsRequest.get(options);
 }
