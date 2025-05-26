@@ -14,14 +14,14 @@ function validateAuthData(authData, options) {
     );
   }
 
-  let appID = authData.options.appID;
+  let appID = authData.appID;
   if (appID != null)
   {
     // ensure the requested app ID is configured
     if ('appIDs' in options)
     {
       // allow any of the configured appIDs
-      if (!options.appIDs.includes(authData.options.appID))
+      if (!options.appIDs.includes(authData.appID))
       {
         throw new Parse.Error(
           Parse.Error.INTERNAL_SERVER_ERROR,
@@ -29,7 +29,7 @@ function validateAuthData(authData, options) {
         );
       }
     }
-    else if (authData.options.appID != options.appID)
+    else if (authData.appID != options.appID)
     {
       // legacy: check against the single provided appID from options
       throw new Parse.Error(
