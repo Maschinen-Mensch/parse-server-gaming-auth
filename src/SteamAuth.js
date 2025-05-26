@@ -14,6 +14,36 @@ function validateAuthData(authData, options) {
     );
   }
 
+  let appID = authData.options.appID;
+  if (appID != null)
+  {
+    // ensure the requested app ID is configured
+    if ('appIDs' in options)
+    {
+      // allow any of the configured appIDs
+      if (!options.appIDs.includes(authData.options.appID))
+      {
+        throw new Parse.Error(
+          Parse.Error.INTERNAL_SERVER_ERROR,
+          'authData appID not configured in options'
+        );
+      }
+    }
+    else if (authData.options.appID != options.appID)
+    {
+      // legacy: check against the single provided appID from options
+      throw new Parse.Error(
+        Parse.Error.INTERNAL_SERVER_ERROR,
+        'authData appID not configured in options'
+      );
+    }
+  }
+  else
+  {
+    // legacy: use the single provided appID from options
+    appID = options.appID;
+  }
+
   return steamApiRequest(options.publisherKey, 
     "ISteamUserAuth/AuthenticateUserTicket/v1/"
     +"?key="+options.webAPIKey
