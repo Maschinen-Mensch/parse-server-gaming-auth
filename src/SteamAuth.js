@@ -46,9 +46,9 @@ function validateAuthData(authData, options) {
 
   return steamApiRequest(options.publisherKey, 
     "ISteamUserAuth/AuthenticateUserTicket/v1/"
-    +"?key="+options.webAPIKey
-    +"&appid="+options.appID
-    +"&ticket="+authData.sessionTicket
+    + "?key=" + options.webAPIKey
+    + "&appid=" + appID
+    + "&ticket=" + authData.sessionTicket
   ).then(data => {
     if (data.response.error != null)
     {
