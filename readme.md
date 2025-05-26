@@ -26,6 +26,7 @@ Parse.User._registerAuthenticationProvider(steamAuthProvider);
 "steam": {
   "id": "user's steam ID",
   "access_token": "access ticket from ISteamUser.GetAuthSessionTicket"
+  "appID": "steam app ID (must be present in server config)"
 }
 ```
 
@@ -50,7 +51,7 @@ auth: {
   steam: {
     module: require('@maschinen-mensch/parse-server-gaming-auth').steam,
     webAPIKey: '',  // your steam web API key or publisher key
-    appID: '',  // your steam app ID
+    appIDs: [''],  // your steam app ID (supports multiple for sharing parse accounts for different apps, eg for demos)
     publisherKey: true  // set to true if you are using a publisher key, or false if you are using a public web API key (optional, default false)
   }
 }
